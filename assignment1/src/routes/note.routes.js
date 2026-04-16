@@ -3,5 +3,6 @@ const router = express.Router();
 const { createNote } = require("../controllers/note.controller");
 
 router.post("/", createNote);
+router.post("/bulk", bulkCreate);
 
 module.exports = router;

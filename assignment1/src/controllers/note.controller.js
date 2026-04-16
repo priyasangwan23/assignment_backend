@@ -19,3 +19,23 @@ exports.createNote = async (req, res) => {
     data: note
   });
 };
+
+exports.bulkCreate = async (req, res) => {
+  const { notes } = req.body;
+
+  if (!notes || notes.length === 0) {
+    return res.status(400).json({
+      success: false,
+      message: "Notes array required",
+      data: null
+    });
+  }
+
+  const result = await Note.insertMany(notes);
+
+  res.status(201).json({
+    success: true,
+    message: "Bulk notes created",
+    data: result
+  });
+};
