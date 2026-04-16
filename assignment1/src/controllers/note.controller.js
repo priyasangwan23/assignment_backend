@@ -67,3 +67,16 @@ exports.getNoteById = async (req, res) => {
     data: note
   });
 };
+
+exports.replaceNote = async (req, res) => {
+  const note = await Note.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    overwrite: true
+  });
+
+  res.json({
+    success: true,
+    message: "Note replaced",
+    data: note
+  });
+};
