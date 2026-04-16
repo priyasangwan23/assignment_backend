@@ -39,3 +39,13 @@ exports.bulkCreate = async (req, res) => {
     data: result
   });
 };
+
+exports.getAllNotes = async (req, res) => {
+  const notes = await Note.find();
+
+  res.json({
+    success: true,
+    message: "Notes fetched",
+    data: notes
+  });
+};
