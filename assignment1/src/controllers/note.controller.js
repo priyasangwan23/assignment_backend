@@ -103,3 +103,15 @@ exports.deleteNote = async (req, res) => {
     data: null
   });
 };
+
+exports.bulkDelete = async (req, res) => {
+  const { ids } = req.body;
+
+  const result = await Note.deleteMany({ _id: { $in: ids } });
+
+  res.json({
+    success: true,
+    message: "Bulk deleted",
+    data: null
+  });
+};

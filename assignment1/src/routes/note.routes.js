@@ -9,5 +9,6 @@ router.get("/:id", getNoteById);
 router.put("/:id", replaceNote);
 router.patch("/:id", updateNote);
 router.delete("/:id", deleteNote);
+router.delete("/bulk", bulkDelete);
 
 module.exports = router;
