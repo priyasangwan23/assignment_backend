@@ -1,6 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const { createNote } = require("../controllers/note.controller");
+
+const {
+  createNote,
+  bulkCreate,
+  getAllNotes,
+  getNoteById,
+  replaceNote,
+  updateNote,
+  deleteNote,
+  bulkDelete,
+} = require("../controllers/note.controller");
 
 router.post("/", createNote);
 router.post("/bulk", bulkCreate);
