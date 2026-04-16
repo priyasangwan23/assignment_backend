@@ -1,0 +1,21 @@
+const Note = require("../models/note.model");
+
+exports.createNote = async (req, res) => {
+  const { title, content } = req.body;
+
+  if (!title || !content) {
+    return res.status(400).json({
+      success: false,
+      message: "Title and content required",
+      data: null
+    });
+  }
+
+  const note = await Note.create(req.body);
+
+  res.status(201).json({
+    success: true,
+    message: "Note created",
+    data: note
+  });
+};
