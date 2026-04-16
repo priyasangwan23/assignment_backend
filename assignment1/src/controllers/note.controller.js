@@ -49,3 +49,21 @@ exports.getAllNotes = async (req, res) => {
     data: notes
   });
 };
+
+exports.getNoteById = async (req, res) => {
+  const note = await Note.findById(req.params.id);
+
+  if (!note) {
+    return res.status(404).json({
+      success: false,
+      message: "Not found",
+      data: null
+    });
+  }
+
+  res.json({
+    success: true,
+    message: "Note fetched",
+    data: note
+  });
+};
