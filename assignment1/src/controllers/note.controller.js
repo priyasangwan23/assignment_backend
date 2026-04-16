@@ -80,3 +80,15 @@ exports.replaceNote = async (req, res) => {
     data: note
   });
 };
+
+exports.updateNote = async (req, res) => {
+  const note = await Note.findByIdAndUpdate(req.params.id, req.body, {
+    new: true
+  });
+
+  res.json({
+    success: true,
+    message: "Note updated",
+    data: note
+  });
+};

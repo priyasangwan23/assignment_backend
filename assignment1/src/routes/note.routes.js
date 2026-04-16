@@ -7,5 +7,6 @@ router.post("/bulk", bulkCreate);
 router.get("/", getAllNotes);
 router.get("/:id", getNoteById);
 router.put("/:id", replaceNote);
+router.patch("/:id", updateNote);
 
 module.exports = router;
