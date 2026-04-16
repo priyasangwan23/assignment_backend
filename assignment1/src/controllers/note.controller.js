@@ -92,3 +92,14 @@ exports.updateNote = async (req, res) => {
     data: note
   });
 };
+
+
+exports.deleteNote = async (req, res) => {
+  await Note.findByIdAndDelete(req.params.id);
+
+  res.json({
+    success: true,
+    message: "Note deleted",
+    data: null
+  });
+};

@@ -8,5 +8,6 @@ router.get("/", getAllNotes);
 router.get("/:id", getNoteById);
 router.put("/:id", replaceNote);
 router.patch("/:id", updateNote);
+router.delete("/:id", deleteNote);
 
 module.exports = router;
